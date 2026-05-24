@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include "logging/logger.h"
 
 class Sensor
 {

@@ -4,7 +4,7 @@
 Lidar::Lidar(const std::string& name, const uint16_t p_range) :Sensor(name), range(p_range)
 {
     lidar_readings.resize(range);
-    std::cout << "lidar sensor is created!\n";
+    Logger::getInstance().log(logLevel::INFO, "Lidar [" + this->getName() + "] created");
 }
 
 void Lidar::update()
@@ -15,7 +15,7 @@ void Lidar::update()
         lidar_point.y = point(gen);
         lidar_point.z = point(gen);
     }
-    std::cout << "Lidar updated\n";
+    Logger::getInstance().log(logLevel::INFO, "Lidar [" + this->getName() + "] updated");
 }
 
 void Lidar::display() const

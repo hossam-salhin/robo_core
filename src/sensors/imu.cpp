@@ -4,8 +4,7 @@
 
 Imu::Imu(const std::string& name): Sensor(name)
 {
-    std::cout << "an imu created with initail value 0.0\n";
-    
+    Logger::getInstance().log(logLevel::INFO,  "imu [" + this->getName() + "] created");
 }
 
 void Imu::update()
@@ -19,13 +18,14 @@ void Imu::update()
     gyro.x = gyr(gen);
     gyro.y = gyr(gen);
     gyro.z = gyr(gen);
-    std::cout << "imu updated!\n";
+    //std::cout << "imu updated!\n";
+    Logger::getInstance().log(logLevel::INFO, "imu [" + this->getName() + "] updated");
 }
 
 void Imu::display() const
 {
     std::cout << "Sensor Name: " << this->getName() << "[ID: " << this->getID() << "] readings: \n";
-    std::cout << "acceleration reading: "<< accel << "}\n";
+    std::cout << "acceleration reading: "<< accel << "\n";
     std::cout << "Gyro reading: " << gyro << "\n\n";
 
 

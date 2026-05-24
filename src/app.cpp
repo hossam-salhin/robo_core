@@ -7,10 +7,10 @@
 #include <vector>
 
 
-
 int main()
 {
     SensorRegistry registry;
+
 
     registry.addSensor(std::make_unique<Imu>("base_imu"));
     registry.addSensor(std::make_unique<Lidar>("lidar3D", 10));
