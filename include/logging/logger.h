@@ -18,7 +18,6 @@ class Logger   //singltone class that has only one instance
 
     void log(logLevel level, const std::string& message);
 
-      
     private:
     logLevel minLevel = logLevel::INFO;
     std::ofstream logFile;

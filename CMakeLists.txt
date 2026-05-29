@@ -13,6 +13,7 @@ add_executable(robo_core
     src/sensors/lidar.cpp
     src/sensors/sensorRegistry.cpp
     src/logging/logger.cpp
+    src/state/stateManager.cpp
     src/app.cpp
 
 )

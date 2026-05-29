@@ -9,8 +9,6 @@ Imu::Imu(const std::string& name): Sensor(name)
 
 void Imu::update()
 {
-    
-
     accel.x = dist(gen);
     accel.y = dist(gen);
     accel.z = dist(gen);
@@ -18,7 +16,6 @@ void Imu::update()
     gyro.x = gyr(gen);
     gyro.y = gyr(gen);
     gyro.z = gyr(gen);
-    //std::cout << "imu updated!\n";
     Logger::getInstance().log(logLevel::INFO, "imu [" + this->getName() + "] updated");
 }
 
@@ -27,7 +24,5 @@ void Imu::display() const
     std::cout << "Sensor Name: " << this->getName() << "[ID: " << this->getID() << "] readings: \n";
     std::cout << "acceleration reading: "<< accel << "\n";
     std::cout << "Gyro reading: " << gyro << "\n\n";
-
-
 }
 

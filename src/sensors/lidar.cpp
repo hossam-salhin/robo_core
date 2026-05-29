@@ -20,7 +20,6 @@ void Lidar::update()
 
 void Lidar::display() const
 {
-
     std::cout << "Sensor Name: "  <<  this->getName() << "[ID: " << this->getID() << "] readings: \n";
     for(const auto& item: lidar_readings)
     {

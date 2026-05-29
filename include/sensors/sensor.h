@@ -3,6 +3,7 @@
 #include <string>
 #include "logging/logger.h"
 
+
 class Sensor
 {
     public:
@@ -15,6 +16,7 @@ class Sensor
     virtual void update() = 0;
     virtual void display() const = 0;
 
+
     const std::string& getName() const
     {
         return this->Name;
@@ -26,6 +28,7 @@ class Sensor
     }
     virtual ~Sensor() = default;
 
+    
     private:
     std::string Name;
     int Id;

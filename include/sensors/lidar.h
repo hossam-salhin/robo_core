@@ -18,6 +18,5 @@ class Lidar : public Sensor
     std::random_device rd;
     std::mt19937 gen{rd()};
     std::uniform_real_distribution<float> point{0.2f, 10.0f};
-
 };
 

@@ -14,7 +14,6 @@ void Logger::log(logLevel level, const std::string& message)
 
     if(logFile.is_open())
     {
-
         time_t now = time(nullptr);
         std::tm* local_tm = std::localtime(&now);
         char timeStr[10];
