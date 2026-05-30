@@ -22,16 +22,17 @@ int main()
     registry.addSensor(std::make_unique<Imu>("base_imu"));
     registry.addSensor(std::make_unique<Lidar>("lidar3D", 10));
 
-    sm.setState(robotState::RUNNING);
 
-    for(size_t i = 0 ; i < 2; ++i)
+    sm.setState(robotState::RUNNING);
+    registry.startAll();
+
+    for(size_t i = 0 ; i < 5; ++i)
     {
-        registry.updateAll();
         registry.displayAll();
        
         std::this_thread::sleep_for(std::chrono::milliseconds(2000));
     }
-    
+    registry.stopAll();
     sm.setState(robotState::STOPPED);
 
     std::cin.get();
