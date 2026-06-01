@@ -14,6 +14,7 @@ add_executable(robo_core
     src/sensors/sensorRegistry.cpp
     src/logging/logger.cpp
     src/state/stateManager.cpp
+    src/config/configLoader.cpp
     src/app.cpp
 
 )

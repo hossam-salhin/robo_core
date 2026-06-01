@@ -3,6 +3,7 @@
 #include "sensors/sensorRegistry.h"
 #include "state/stateManager.h"
 #include "logging/logger.h"
+#include "config/configLoader.h"
 #include <iostream>
 #include <thread>
 #include <chrono>
@@ -14,13 +15,19 @@ int main()
     SensorRegistry registry;
     StateManager& sm = StateManager::getInstance();
     sm.registerCallback([](robotState ns){
-                                Logger::getInstance().log(logLevel::INFO, 
-                                        "Observer notified - new state: " + StateManager::getInstance().getStateStr(ns) );
-                                        });
+            Logger::getInstance().log(logLevel::INFO, 
+            "Observer notified - new state: " + StateManager::getInstance().getStateStr(ns) );
+    });
 
-    
-    registry.addSensor(std::make_unique<Imu>("base_imu"));
-    registry.addSensor(std::make_unique<Lidar>("lidar3D", 10));
+    ConfigLoader config;
+    config.load("../config/robot_config.cfg");
+
+    std::string imuName = config.getString("imu_name", "imu");
+    std::string lidarName = config.getString("lidar_name", "lidar");
+    int beams = config.getInt("lidar_beams", 10);
+
+    registry.addSensor(std::make_unique<Imu>(imuName));
+    registry.addSensor(std::make_unique<Lidar>(lidarName, beams));
 
 
     sm.setState(robotState::RUNNING);
