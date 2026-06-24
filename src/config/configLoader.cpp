@@ -3,7 +3,7 @@
 #include "logging/logger.h"
 
 
-void ConfigLoader::load(const std::string &filePath)
+bool ConfigLoader::load(const std::string &filePath)
 {
     std::ifstream file(filePath);
     std::string line;
@@ -11,7 +11,7 @@ void ConfigLoader::load(const std::string &filePath)
     if(!file.is_open())
     {
         Logger::getInstance().log(logLevel::ERROR, "ConfigLoad: failed to openfile " + filePath);
-        return ;
+        return false ;
     }
     while(std::getline(file,line))
     {
@@ -24,6 +24,7 @@ void ConfigLoader::load(const std::string &filePath)
         std::string value = trim(line.substr(pos + 1));
         data[key] = value;
     }
+    return true;
 }
 
 std::string ConfigLoader::getString(const std::string &key, const std::string &defaultVal)

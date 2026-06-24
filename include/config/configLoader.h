@@ -16,7 +16,7 @@ class ConfigLoader
     }
 
     public:
-    void load(const std::string& path);
+    bool load(const std::string& path);
     std::string getString(const std::string& key, const std::string& defaultVal);
     int getInt(const std::string& key, int defaultVal);
     float getFloat(const std::string& key, float defaultVal);

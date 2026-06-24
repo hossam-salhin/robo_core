@@ -15,6 +15,7 @@ add_executable(robo_core
     src/logging/logger.cpp
     src/state/stateManager.cpp
     src/config/configLoader.cpp
+    src/system/robotSystem.cpp
     src/app.cpp
 
 )
